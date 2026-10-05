@@ -1278,6 +1278,9 @@ int main (int argc, char **argv)
             case 'p':
                 est_port = atoi(optarg);
                 break;
+#if 0
+            /* JuM: FIPS_mode() is deprecated in 3.x
+             */
             case 'f':
                 /* Turn FIPS on if requested and exit if failure */
                 set_fips_return = FIPS_mode_set(1);
@@ -1290,6 +1293,7 @@ int main (int argc, char **argv)
                     printf("\nRunning EST Sample Client with FIPS MODE = ON\n");
                 };
                 break;
+#endif
             case 't':
                 num_threads = atoi(optarg);
                 if (num_threads > MAX_THREADS) {

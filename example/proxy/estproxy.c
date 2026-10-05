@@ -589,6 +589,9 @@ int main (int argc, char **argv)
         case 'l':
             listen_port = atoi(optarg);
             break;
+#if 0
+            /* JuM: FIPS_mode() is deprecated in 3.x
+             */
         case 'f':
             /*
              * Turn FIPS on if user requested it and exit if failure
@@ -602,6 +605,7 @@ int main (int argc, char **argv)
                 printf("\nRunning EST Sample Proxy with FIPS MODE = ON !\n");
             }
             break;
+#endif
         default:
             show_usage_and_exit();
             break;

@@ -3178,6 +3178,9 @@ EST_ERROR est_client_enroll_internal (EST_CTX *ctx, char *cn, int *pkcs7_len, in
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -3187,6 +3190,7 @@ EST_ERROR est_client_enroll_internal (EST_CTX *ctx, char *cn, int *pkcs7_len, in
             rv = EST_ERR_BAD_MODE;
             goto err;
         }
+#endif
 
         /* Try one more time if we're doing HTTP auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
@@ -3589,6 +3593,9 @@ EST_ERROR est_client_reenroll (EST_CTX *ctx, X509 *cert, int *pkcs7_len, EVP_PKE
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -3598,7 +3605,7 @@ EST_ERROR est_client_reenroll (EST_CTX *ctx, X509 *cert, int *pkcs7_len, EVP_PKE
 	    rv = EST_ERR_BAD_MODE;
             goto err;
         }
-        
+#endif
         /* Try one more time if we're doing Digest auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
         rv = est_client_connect(ctx, &ssl);
@@ -3675,6 +3682,9 @@ static EST_ERROR est_client_enroll_csr_internal (EST_CTX *ctx, X509_REQ *csr, in
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -3684,7 +3694,7 @@ static EST_ERROR est_client_enroll_csr_internal (EST_CTX *ctx, X509_REQ *csr, in
             rv = EST_ERR_BAD_MODE;
             goto err;
         }
-
+#endif
         /* Try one more time if we're doing Digest auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
         rv = est_client_connect(ctx, &ssl);
@@ -5867,6 +5877,9 @@ static EST_ERROR est_client_brski_send_get_voucher (EST_CTX *ctx, int *cacert_le
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -5876,7 +5889,7 @@ static EST_ERROR est_client_brski_send_get_voucher (EST_CTX *ctx, int *cacert_le
             rv = EST_ERR_BAD_MODE;
             goto err;
         }
-        
+#endif
         /* Try one more time if we're doing Digest auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
         rv = est_client_connect(ctx, &ssl);
@@ -6361,6 +6374,9 @@ EST_ERROR est_client_brski_send_voucher_status (EST_CTX *ctx, EST_BRSKI_STATUS_V
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -6370,7 +6386,7 @@ EST_ERROR est_client_brski_send_voucher_status (EST_CTX *ctx, EST_BRSKI_STATUS_V
             rv = EST_ERR_BAD_MODE;
             goto err;
         }
-        
+#endif
         /* Try one more time if we're doing Digest auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
         rv = est_client_connect(ctx, &ssl);
@@ -6530,6 +6546,9 @@ EST_ERROR est_client_brski_send_enroll_status (EST_CTX *ctx, EST_BRSKI_STATUS_VA
          ctx->auth_mode == AUTH_BASIC  ||
          ctx->auth_mode == AUTH_TOKEN)) {
 
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         /*
          * HTTPS digest mode requires the use of MD5.  Make sure we're not
          * in FIPS mode and can use MD5
@@ -6539,7 +6558,7 @@ EST_ERROR est_client_brski_send_enroll_status (EST_CTX *ctx, EST_BRSKI_STATUS_VA
             rv = EST_ERR_BAD_MODE;
             goto err;
         }
-        
+#endif
         /* Try one more time if we're doing Digest auth */
         EST_LOG_INFO("HTTP Auth failed, trying again with HTTP Auth credentials");
         rv = est_client_connect(ctx, &ssl);

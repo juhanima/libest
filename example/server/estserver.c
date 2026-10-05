@@ -2281,6 +2281,9 @@ int main (int argc, char **argv)
             
             strncpy(realm, optarg, MAX_REALM_LEN);
             break;
+#if 0
+        /* JuM: FIPS_mode() is deprecated in 3.x
+         */
         case 'f':
             /* turn FIPS on if user requested it
              * and exit if failure.
@@ -2295,6 +2298,7 @@ int main (int argc, char **argv)
             }
             ;
             break;
+#endif
         default:
             show_usage_and_exit();
             break;

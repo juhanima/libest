@@ -31,6 +31,8 @@
 #include <openssl/cms.h>
 #include <openssl/bio.h>
 
+static int FIPS_mode(void) { return 0; }
+
 
 static ASN1_OBJECT *o_cmcRA = NULL;
 #define EST_SERVER_RSA_KEYSIZE_4096       4096
